@@ -1,0 +1,574 @@
+{
+  "note": "Extra demo listings so every category, filter and badge on the site has something to show. The official seed data from the assignment root (studios.json / bookings.json) is imported verbatim alongside this file and is never modified. Image paths point at the pictures saved in StudioSpace-Client/public/studios; their credits are listed in the client README and in the site footer.",
+  "studios": [
+    {
+      "_id": "673f1a01e84a2b9101a10003",
+      "title": "Lumen Cyc Studio & Natural Light Room",
+      "slug": "lumen-cyc-studio",
+      "category": "Photo Studio",
+      "tagline": "White cyc corner, blackout blinds and a north-facing window — one room, three looks.",
+      "description": "A lean, well-kept photo studio built for portrait, fashion and product work. The shooting floor is a seamless white cyc with a corner cove, and the room can be blacked out completely for controlled strobe work or opened to soft north light for natural-light editorial. Tethering desk, client sofa and a hair and makeup station are included.",
+      "location": {
+        "address": "House 27, Road 11, Block C, Banani",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1213",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.793707, "lng": 90.403924 }
+      },
+      "pricing": {
+        "hourlyRate": 38,
+        "dailyRate": 280,
+        "securityDeposit": 100,
+        "cleaningFee": 20,
+        "minimumHours": 2,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 900,
+        "ceilingHeightFt": 14,
+        "maxCapacity": 12,
+        "powerCapacity": "Single-phase 60A",
+        "soundproofRating": "Residential quiet"
+      },
+      "images": [
+        {
+          "url": "/studios/photo-studio-cyc.png",
+          "caption": "White cyclorama corner with lighting rig",
+          "isPrimary": true
+        }
+      ],
+      "amenities": [
+        "Seamless White Cyc Corner",
+        "Blackout Blinds",
+        "North-Facing Daylight Window",
+        "Tethering Desk & Monitor",
+        "Hair and Makeup Station",
+        "High-Speed Wi-Fi",
+        "Air Conditioning",
+        "Free Street Parking"
+      ],
+      "includedGear": [
+        "C-Stands (x6)",
+        "Sandbags 25lbs (x10)",
+        "V-Flats (x4)",
+        "Rolling Clothing Rack"
+      ],
+      "host": {
+        "hostId": "usr_host_examiner",
+        "name": "StudioSpace Examiner",
+        "email": "examiner@studiospace.io",
+        "phone": "+8801700000009",
+        "avatar": "",
+        "isSuperhost": true,
+        "responseRatePercent": 98,
+        "responseTime": "Within 30 minutes"
+      },
+      "rules": [
+        "Street shoes off on the white floor",
+        "Overtime billed at 1.5x hourly rate",
+        "Please leave the room as you found it"
+      ],
+      "rating": 4.9,
+      "reviewCount": 21,
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-03-04T07:15:00.000Z",
+      "updatedAt": "2026-10-12T06:40:00.000Z"
+    },
+    {
+      "_id": "673f1a01e84a2b9101a10004",
+      "title": "Northlight Stage Two",
+      "slug": "northlight-stage-two",
+      "category": "Film Stage",
+      "tagline": "A quiet black-box stage with a pre-rigged grid, for interviews, inserts and pickups.",
+      "description": "Northlight Stage Two is the smaller of our two floors and the one most crews re-book. The room is fully blacked out, the ceiling grid comes pre-rigged with a standard interview package, and the stage floor is a matte charcoal that takes tape without leaving marks. Loading is level from the car park with no lift.",
+      "location": {
+        "address": "9 Tejgaon Industrial Area, Gate 3",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1208",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.764121, "lng": 90.397523 }
+      },
+      "pricing": {
+        "hourlyRate": 85,
+        "dailyRate": 720,
+        "securityDeposit": 300,
+        "cleaningFee": 45,
+        "minimumHours": 4,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 2200,
+        "ceilingHeightFt": 18,
+        "maxCapacity": 35,
+        "powerCapacity": "3-Phase 100A",
+        "soundproofRating": "STC 50"
+      },
+      "images": [
+        {
+          "url": "/studios/film-stage-crew.jpg",
+          "caption": "Crew working under the pre-rigged grid",
+          "isPrimary": true
+        },
+        {
+          "url": "/studios/film-stage-exterior.jpg",
+          "caption": "Level loading entrance from the car park",
+          "isPrimary": false
+        }
+      ],
+      "amenities": [
+        "Blacked-Out Stage Floor",
+        "Pre-Rigged Ceiling Grid",
+        "Level Drive-In Loading",
+        "Video Village Area",
+        "Green Room",
+        "3-Phase Power",
+        "Air Conditioning",
+        "Gaffer On Call"
+      ],
+      "includedGear": [
+        "ARRI 650W Fresnels (x4)",
+        "Softbox Kit",
+        "C-Stands (x8)",
+        "Apple Boxes (set)"
+      ],
+      "host": {
+        "hostId": "usr_host_771204",
+        "name": "Northlight Stages",
+        "email": "bookings@northlightstages.io",
+        "phone": "+8801700000010",
+        "avatar": "",
+        "isSuperhost": true,
+        "responseRatePercent": 96,
+        "responseTime": "Within 1 hour"
+      },
+      "rules": [
+        "No open flame without a permit",
+        "Hazer permitted with prior notice",
+        "Stage must be struck by the end of the booking"
+      ],
+      "rating": 4.82,
+      "reviewCount": 44,
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-01-28T05:05:00.000Z",
+      "updatedAt": "2026-09-30T10:10:00.000Z"
+    },
+    {
+      "_id": "673f1a01e84a2b9101a10005",
+      "title": "Vault Analog Music Suite",
+      "slug": "vault-analog-music-suite",
+      "category": "Music Suite",
+      "tagline": "Analog console, tape machine and a live room that actually sounds like a room.",
+      "description": "A tracking and mixing suite for bands, composers and score work. The control room is built around a large-format analog console, and the live room takes a drum kit with a warm, controlled tail. A separate iso booth handles vocals and amps so a full band can track at once.",
+      "location": {
+        "address": "42 Lalmatia Block D, Level 2",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1207",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.757142, "lng": 90.371116 }
+      },
+      "pricing": {
+        "hourlyRate": 65,
+        "dailyRate": 540,
+        "securityDeposit": 250,
+        "cleaningFee": 35,
+        "minimumHours": 3,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 1200,
+        "ceilingHeightFt": 12,
+        "maxCapacity": 14,
+        "powerCapacity": "Balanced clean power, 2x30A",
+        "soundproofRating": "STC 62 Floating room"
+      },
+      "images": [
+        {
+          "url": "/studios/music-suite-desk.jpg",
+          "caption": "Large-format console in the control room",
+          "isPrimary": true
+        },
+        {
+          "url": "/studios/music-suite-console.jpg",
+          "caption": "Outboard rack and monitoring position",
+          "isPrimary": false
+        }
+      ],
+      "amenities": [
+        "Large-Format Analog Console",
+        "Live Room for Full Band",
+        "Vocal Iso Booth",
+        "Outboard Gear Rack",
+        "Nearfield & Farfield Monitors",
+        "Coffee Counter",
+        "Air Conditioning",
+        "Secure Instrument Storage"
+      ],
+      "includedGear": [
+        "Analog mixing console",
+        "24-Channel Multitrack Interface",
+        "Drum Kit (house kit)",
+        "Fender Twin Reverb Amp"
+      ],
+      "host": {
+        "hostId": "usr_host_663310",
+        "name": "Vault Recordings",
+        "email": "studio@vaultrecordings.io",
+        "phone": "+8801700000011",
+        "avatar": "",
+        "isSuperhost": false,
+        "responseRatePercent": 92,
+        "responseTime": "Within 3 hours"
+      },
+      "rules": [
+        "Bring your own drives for session backups",
+        "No food or drink at the console",
+        "Engineer can be added to the booking on request"
+      ],
+      "rating": 4.76,
+      "reviewCount": 29,
+      "isFeatured": false,
+      "isActive": true,
+      "createdAt": "2026-02-02T09:20:00.000Z",
+      "updatedAt": "2026-10-05T12:00:00.000Z"
+    },
+    {
+      "_id": "673f1a01e84a2b9101a10006",
+      "title": "The Podcave — Gulshan",
+      "slug": "the-podcave-gulshan",
+      "category": "Podcast Lounge",
+      "tagline": "A softly lit corner booth for two, tuned so the room never gets in the way.",
+      "description": "The Podcave is a compact, heavily treated room for interview shows, audiobooks and voice work. It seats two comfortably with proper boom arms, an acoustic carpet and a soft but even light so daylight recordings look consistent whatever the hour. A remote guest can join over a dedicated call-in channel.",
+      "location": {
+        "address": "Avenue 4, Gulshan 1, Level 6",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1212",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.780636, "lng": 90.415569 }
+      },
+      "pricing": {
+        "hourlyRate": 32,
+        "dailyRate": 240,
+        "securityDeposit": 80,
+        "cleaningFee": 15,
+        "minimumHours": 1,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 260,
+        "ceilingHeightFt": 9,
+        "maxCapacity": 4,
+        "powerCapacity": "120V Standard Clean Power",
+        "soundproofRating": "STC 58 Treated booth"
+      },
+      "images": [
+        {
+          "url": "/studios/podcast-lounge-podcave.jpg",
+          "caption": "Two-seat corner booth with acoustic treatment",
+          "isPrimary": true
+        },
+        {
+          "url": "/studios/podcast-microphone.webp",
+          "caption": "Broadcast dynamic microphone on boom arm",
+          "isPrimary": false
+        }
+      ],
+      "amenities": [
+        "Two Broadcast Mics on Boom Arms",
+        "Acoustic Carpet & Wall Panels",
+        "Even Key Light",
+        "Remote Guest Call-In Channel",
+        "Headphone Monitoring",
+        "High-Speed Wi-Fi",
+        "Air Conditioning",
+        "Complimentary Filter Coffee"
+      ],
+      "includedGear": [
+        "Dynamic Broadcast Mics (x2)",
+        "Audio Interface",
+        "Closed-Back Headphones (x2)",
+        "Backup Recorder"
+      ],
+      "host": {
+        "hostId": "usr_host_552087",
+        "name": "The Podcave",
+        "email": "hello@thepodcave.io",
+        "phone": "+8801700000012",
+        "avatar": "",
+        "isSuperhost": true,
+        "responseRatePercent": 99,
+        "responseTime": "Within 10 minutes"
+      },
+      "rules": [
+        "One booking holds the room exclusively",
+        "Please keep voices down in the corridor",
+        "Report any faulty cable before you leave"
+      ],
+      "rating": 4.93,
+      "reviewCount": 63,
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-01-09T11:00:00.000Z",
+      "updatedAt": "2026-10-28T08:30:00.000Z"
+    },
+    {
+      "_id": "673f1a01e84a2b9101a10007",
+      "title": "Studio WCWC Long-Form Podcast Room",
+      "slug": "studio-wcwc-podcast-room",
+      "category": "Podcast Lounge",
+      "tagline": "A four-person round table for panel shows and long-form interview series.",
+      "description": "A larger podcast room for panel shows, round tables and streamed recordings. Four microphone positions face a shared table, three cameras cover wide and two singles, and the whole room is on a single switch so one person can start recording without an operator.",
+      "location": {
+        "address": "12 Kemal Ataturk Avenue, Banani",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1213",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.793551, "lng": 90.402439 }
+      },
+      "pricing": {
+        "hourlyRate": 55,
+        "dailyRate": 430,
+        "securityDeposit": 180,
+        "cleaningFee": 30,
+        "minimumHours": 2,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 620,
+        "ceilingHeightFt": 11,
+        "maxCapacity": 8,
+        "powerCapacity": "120V Standard Clean Power",
+        "soundproofRating": "STC 56"
+      },
+      "images": [
+        {
+          "url": "/studios/podcast-lounge-wcwc.jpg",
+          "caption": "Four-person round table under panel lighting",
+          "isPrimary": true
+        }
+      ],
+      "amenities": [
+        "Four-Person Round Table",
+        "Three-Camera Coverage",
+        "Live Streaming Encoder",
+        "Colour-Accurate Panel Lighting",
+        "Green Room",
+        "High-Speed Fiber Internet",
+        "Air Conditioning",
+        "On-Site Operator On Request"
+      ],
+      "includedGear": [
+        "Condenser Microphones (x4)",
+        "PTZ Cameras (x3)",
+        "Streaming Mixer",
+        "Cable and Power Kit"
+      ],
+      "host": {
+        "hostId": "usr_host_552087",
+        "name": "The Podcave",
+        "email": "hello@thepodcave.io",
+        "phone": "+8801700000012",
+        "avatar": "",
+        "isSuperhost": true,
+        "responseRatePercent": 99,
+        "responseTime": "Within 10 minutes"
+      },
+      "rules": [
+        "Arrive 15 minutes early to set levels",
+        "Food allowed in the green room only",
+        "Overtime billed at 1.5x hourly rate"
+      ],
+      "rating": 4.71,
+      "reviewCount": 18,
+      "isFeatured": false,
+      "isActive": true,
+      "createdAt": "2026-03-19T03:45:00.000Z",
+      "updatedAt": "2026-10-02T09:15:00.000Z"
+    },
+    {
+      "_id": "673f1a01e84a2b9101a10008",
+      "title": "Terracotta Art Workshop & Wet Studio",
+      "slug": "terracotta-art-workshop",
+      "category": "Workshop",
+      "tagline": "Wheels, a slab table and a kiln — a working ceramics floor you can rent whole.",
+      "description": "A practical wet workshop for ceramics, sculpture and prop making. Six wheels, two slab tables, a wedging bench and access to a kiln firing schedule. The floor is sealed for wet work and the drying racks are shared with the resident makers, so greenware can stay on site.",
+      "location": {
+        "address": "Shewrapara, Begum Rokeya Sarani",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1216",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.788672, "lng": 90.374963 }
+      },
+      "pricing": {
+        "hourlyRate": 28,
+        "dailyRate": 210,
+        "securityDeposit": 90,
+        "cleaningFee": 25,
+        "minimumHours": 2,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 1500,
+        "ceilingHeightFt": 13,
+        "maxCapacity": 16,
+        "powerCapacity": "Kiln circuit 2x40A",
+        "soundproofRating": "Open workshop floor"
+      },
+      "images": [
+        {
+          "url": "/studios/workshop-pottery.jpg",
+          "caption": "Rows of wheels on the wet workshop floor",
+          "isPrimary": true
+        }
+      ],
+      "amenities": [
+        "Six Pottery Wheels",
+        "Two Slab Tables",
+        "Wedging Bench",
+        "Kiln Firing Schedule",
+        "Shared Drying Racks",
+        "Clay Sink and Slop Disposal",
+        "Tool Cupboard",
+        "Ventilation"
+      ],
+      "includedGear": [
+        "Clay per session (10kg)",
+        "Basic Tool Set",
+        "Ware Boards",
+        "Aprons (x8)"
+      ],
+      "host": {
+        "hostId": "usr_host_334455",
+        "name": "Terracotta Collective",
+        "email": "workshop@terracottacollective.io",
+        "phone": "+8801700000013",
+        "avatar": "",
+        "isSuperhost": false,
+        "responseRatePercent": 88,
+        "responseTime": "Within 6 hours"
+      },
+      "rules": [
+        "No production casting without prior agreement",
+        "Wet clay goes down the sink only through the trap",
+        "Kiln space must be booked separately"
+      ],
+      "rating": 4.68,
+      "reviewCount": 15,
+      "isFeatured": false,
+      "isActive": true,
+      "createdAt": "2026-02-24T06:30:00.000Z",
+      "updatedAt": "2026-09-18T07:05:00.000Z"
+    }
+  ],
+  "bookings": [
+    {
+      "_id": "673f2c99b95c3a4402b20003",
+      "bookingNumber": "BK-202611-8903",
+      "studioId": "673f1a01e84a2b9101a10001",
+      "studioTitle": "Aetheria Apex Cinema Stage & Cyclorama",
+      "studioCategory": "Film Stage",
+      "studioImage": "/studios/film-stage-exterior.jpg",
+      "creator": {
+        "userId": "usr_examiner",
+        "name": "StudioSpace Examiner",
+        "email": "examiner@studiospace.io",
+        "phone": "+8801700000009",
+        "avatar": "",
+        "company": "Numerizam Vision Works"
+      },
+      "hostEmail": "host.zaman@studiospace.io",
+      "schedule": {
+        "bookingDate": "2026-12-08",
+        "startTime": "09:00",
+        "endTime": "13:00",
+        "totalHours": 4,
+        "timezone": "Asia/Dhaka"
+      },
+      "pricingSummary": {
+        "hourlyRate": 120,
+        "subtotal": 480,
+        "securityDeposit": 500,
+        "cleaningFee": 75,
+        "platformFee": 24,
+        "totalAmount": 1079,
+        "currency": "USD"
+      },
+      "projectDetails": {
+        "projectTitle": "Brand film interview block",
+        "crewSize": 12,
+        "specialRequirements": "Drive-in access at 08:30 for the lighting truck."
+      },
+      "status": "Confirmed",
+      "payment": {
+        "paymentStatus": "Paid",
+        "paymentMethod": "Credit Card / Stripe",
+        "transactionId": "txn_3Mq982xL901Zya1A003",
+        "paidAt": "2026-11-03T11:40:00.000Z"
+      },
+      "invoice": {
+        "pdfUrl": null,
+        "generatedAt": null
+      },
+      "createdAt": "2026-11-03T11:35:00.000Z",
+      "updatedAt": "2026-11-03T11:40:00.000Z"
+    },
+    {
+      "_id": "673f2c99b95c3a4402b20004",
+      "bookingNumber": "BK-202610-8845",
+      "studioId": "673f1a01e84a2b9101a10005",
+      "studioTitle": "Vault Analog Music Suite",
+      "studioCategory": "Music Suite",
+      "studioImage": "/studios/music-suite-desk.jpg",
+      "creator": {
+        "userId": "usr_examiner",
+        "name": "StudioSpace Examiner",
+        "email": "examiner@studiospace.io",
+        "phone": "+8801700000009",
+        "avatar": "",
+        "company": "Numerizam Vision Works"
+      },
+      "hostEmail": "studio@vaultrecordings.io",
+      "schedule": {
+        "bookingDate": "2026-10-14",
+        "startTime": "11:00",
+        "endTime": "17:00",
+        "totalHours": 6,
+        "timezone": "Asia/Dhaka"
+      },
+      "pricingSummary": {
+        "hourlyRate": 65,
+        "subtotal": 390,
+        "securityDeposit": 250,
+        "cleaningFee": 35,
+        "platformFee": 20,
+        "totalAmount": 695,
+        "currency": "USD"
+      },
+      "projectDetails": {
+        "projectTitle": "Strings tracking for short film score",
+        "crewSize": 6,
+        "specialRequirements": "Bring house engineer for the first two hours."
+      },
+      "status": "Completed",
+      "payment": {
+        "paymentStatus": "Paid",
+        "paymentMethod": "Bank Transfer",
+        "transactionId": "txn_9Ku114pQ220Zya7B010",
+        "paidAt": "2026-10-10T04:20:00.000Z"
+      },
+      "invoice": {
+        "pdfUrl": null,
+        "generatedAt": null
+      },
+      "createdAt": "2026-10-09T15:05:00.000Z",
+      "updatedAt": "2026-10-14T18:30:00.000Z"
+    }
+  ]
+}
