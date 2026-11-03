@@ -1,0 +1,176 @@
+[
+  {
+    "_id": "673f1a01e84a2b9101a10001",
+    "title": "Aetheria Apex Cinema Stage & Cyclorama",
+    "slug": "aetheria-apex-cinema-stage",
+    "category": "Film Stage",
+    "tagline": "4,000 sq ft soundproof stage with 3-sided pre-lit white cyc wall and drive-in access.",
+    "description": "Designed for commercial film shoots, music videos, and high-end photo productions. Features a 24ft clearance ceiling, motorized lighting grid, heavy-duty 3-phase power, sound baffling (STC 60 rated), and direct drive-in garage access for equipment trucks.",
+    "location": {
+      "address": "450 Production Way, Suite 100",
+      "city": "Dhaka",
+      "state": "Dhaka Division",
+      "zipCode": "1208",
+      "country": "Bangladesh",
+      "coordinates": {
+        "lat": 23.777176,
+        "lng": 90.399452
+      }
+    },
+    "pricing": {
+      "hourlyRate": 120,
+      "dailyRate": 1100,
+      "securityDeposit": 500,
+      "cleaningFee": 75,
+      "minimumHours": 4,
+      "currency": "USD"
+    },
+    "specs": {
+      "squareFeet": 4000,
+      "ceilingHeightFt": 24,
+      "maxCapacity": 50,
+      "powerCapacity": "3-Phase 200A",
+      "soundproofRating": "STC 60 (Broadcast Quality)"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Main Cyclorama Wall and Lighting Rig",
+        "isPrimary": true
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Control & Monitoring Station",
+        "isPrimary": false
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Makeup Room & Green Lounge",
+        "isPrimary": false
+      }
+    ],
+    "amenities": [
+      "3-Sided White Cyclorama",
+      "Motorized Lighting Rig",
+      "Drive-In Loading Dock",
+      "Private Makeup & Hair Suite",
+      "Green Room Lounge",
+      "High-Speed Wi-Fi (1 Gbps)",
+      "3-Phase Power Distribution",
+      "Central HVAC / Climate Control",
+      "Production Desk & Client Video Village"
+    ],
+    "includedGear": [
+      "ARRI Skypanel S60-C (x4)",
+      "Aputure 1200d Pro LED (x2)",
+      "C-Stands (x12)",
+      "Sandbags 25lbs (x20)",
+      "6x6 Silk Frame Kit"
+    ],
+    "host": {
+      "hostId": "usr_host_991823",
+      "name": "Zaman Logistics & Media Services",
+      "email": "host.zaman@studiospace.io",
+      "phone": "+8801700000001",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "responseRatePercent": 99,
+      "responseTime": "Within 15 minutes"
+    },
+    "rules": [
+      "No smoking indoors",
+      "Hazer/Fog machines permitted with prior notice",
+      "Overtime billed at 1.5x hourly rate",
+      "Footwear covers required on white cyc floor"
+    ],
+    "rating": 4.95,
+    "reviewCount": 38,
+    "isFeatured": true,
+    "isActive": true,
+    "createdAt": "2026-01-15T08:30:00.000Z",
+    "updatedAt": "2026-10-20T11:45:00.000Z"
+  },
+  {
+    "_id": "673f1a01e84a2b9101a10002",
+    "title": "Acoustic Resonance Podcasting & Broadcast Lounge",
+    "slug": "acoustic-resonance-podcast-lounge",
+    "category": "Podcast Lounge",
+    "tagline": "Turnkey 4-person video podcast booth with broadcast cameras and acoustic treatment.",
+    "description": "An intimate, acoustically engineered recording studio equipped for multi-cam video podcasting, audiobook recording, and voiceover work. Plug-and-play setup for immediate recording to drive or live streaming.",
+    "location": {
+      "address": "12 Purana Paltan Line, Level 4",
+      "city": "Dhaka",
+      "state": "Dhaka Division",
+      "zipCode": "1000",
+      "country": "Bangladesh",
+      "coordinates": {
+        "lat": 23.734125,
+        "lng": 90.407985
+      }
+    },
+    "pricing": {
+      "hourlyRate": 45,
+      "dailyRate": 380,
+      "securityDeposit": 150,
+      "cleaningFee": 25,
+      "minimumHours": 2,
+      "currency": "USD"
+    },
+    "specs": {
+      "squareFeet": 450,
+      "ceilingHeightFt": 10,
+      "maxCapacity": 6,
+      "powerCapacity": "120V Standard Clean Power",
+      "soundproofRating": "STC 55 Sound Treated"
+    },
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1200&q=80",
+        "caption": "4-Person Podcast Table Setup",
+        "isPrimary": true
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1589903308904-1010c2294adc?auto=format&fit=crop&w=1200&q=80",
+        "caption": "Sound Console and Broadcast Booth",
+        "isPrimary": false
+      }
+    ],
+    "amenities": [
+      "4K PTZ Camera System (x3)",
+      "Rødecaster Pro II Audio Console",
+      "Shure SM7B Microphones (x4)",
+      "Custom RGB Mood Lighting",
+      "Sound Proofing Foam Panels",
+      "Live Streaming Encoder",
+      "High-Speed Fiber Internet (Gbit)",
+      "Complimentary Coffee & Water"
+    ],
+    "includedGear": [
+      "Shure SM7B (x4)",
+      "Røde PSA1+ Boom Arms (x4)",
+      "Sony FX3 Video Feeds (x3)",
+      "Blackmagic ATEM Mini Pro ISO"
+    ],
+    "host": {
+      "hostId": "usr_host_882041",
+      "name": "David Lin (Media Lab Manager)",
+      "email": "david.lin@studiospace.io",
+      "phone": "+8801811111102",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "responseRatePercent": 100,
+      "responseTime": "Within 5 minutes"
+    },
+    "rules": [
+      "Food and unsealed drinks allowed in lobby only",
+      "Bring your own high-speed SD card or SSD for footage backup",
+      "Maximum of 6 total people allowed in studio space"
+    ],
+    "rating": 4.88,
+    "reviewCount": 52,
+    "isFeatured": true,
+    "isActive": true,
+    "createdAt": "2026-02-10T14:10:00.000Z",
+    "updatedAt": "2026-11-01T09:20:00.000Z"
+  }
+]

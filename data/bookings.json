@@ -1,0 +1,104 @@
+[
+  {
+    "_id": "673f2c99b95c3a4402b20001",
+    "bookingNumber": "BK-202611-8901",
+    "studioId": "673f1a01e84a2b9101a10001",
+    "studioTitle": "Aetheria Apex Cinema Stage & Cyclorama",
+    "studioCategory": "Film Stage",
+    "studioImage": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80",
+    "creator": {
+      "userId": "usr_creator_443109",
+      "name": "Anisuzzaman Shuvo",
+      "email": "shuvo.creator@numerizam.com",
+      "phone": "+8801712345678",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+      "company": "Numerizam Vision Works"
+    },
+    "hostEmail": "host.zaman@studiospace.io",
+    "schedule": {
+      "bookingDate": "2026-11-15",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "totalHours": 8,
+      "timezone": "Asia/Dhaka"
+    },
+    "pricingSummary": {
+      "hourlyRate": 120,
+      "subtotal": 960,
+      "securityDeposit": 500,
+      "cleaningFee": 75,
+      "platformFee": 48,
+      "totalAmount": 1583,
+      "currency": "USD"
+    },
+    "projectDetails": {
+      "projectTitle": "Commercial Video Shoot - Financial Tech Product",
+      "crewSize": 18,
+      "specialRequirements": "Requires drive-in access for lighting truck at 08:30 AM. Need access to green room."
+    },
+    "status": "Confirmed",
+    "payment": {
+      "paymentStatus": "Paid",
+      "paymentMethod": "Credit Card / Stripe",
+      "transactionId": "txn_3Mq982xL901Zya1A002",
+      "paidAt": "2026-11-03T10:15:00.000Z"
+    },
+    "invoice": {
+      "pdfUrl": "/api/invoices/BK-202611-8901.pdf",
+      "generatedAt": "2026-11-03T10:15:05.000Z"
+    },
+    "createdAt": "2026-11-03T10:12:30.000Z",
+    "updatedAt": "2026-11-03T10:15:05.000Z"
+  },
+  {
+    "_id": "673f2c99b95c3a4402b20002",
+    "bookingNumber": "BK-202611-8902",
+    "studioId": "673f1a01e84a2b9101a10002",
+    "studioTitle": "Acoustic Resonance Podcasting & Broadcast Lounge",
+    "studioCategory": "Podcast Lounge",
+    "studioImage": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80",
+    "creator": {
+      "userId": "usr_creator_551029",
+      "name": "Nazia Tabassum",
+      "email": "nazia.tabassum@example.com",
+      "phone": "+8801912345679",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
+      "company": "Tech & Life Conversations Podcast"
+    },
+    "hostEmail": "david.lin@studiospace.io",
+    "schedule": {
+      "bookingDate": "2026-11-20",
+      "startTime": "14:00",
+      "endTime": "17:00",
+      "totalHours": 3,
+      "timezone": "Asia/Dhaka"
+    },
+    "pricingSummary": {
+      "hourlyRate": 45,
+      "subtotal": 135,
+      "securityDeposit": 150,
+      "cleaningFee": 25,
+      "platformFee": 10,
+      "totalAmount": 320,
+      "currency": "USD"
+    },
+    "projectDetails": {
+      "projectTitle": "Episode 42: Building Scalable Web Apps",
+      "crewSize": 4,
+      "specialRequirements": "4 microphones required. Need 4K PTZ live switching."
+    },
+    "status": "Pending",
+    "payment": {
+      "paymentStatus": "Unpaid",
+      "paymentMethod": "Pending",
+      "transactionId": null,
+      "paidAt": null
+    },
+    "invoice": {
+      "pdfUrl": null,
+      "generatedAt": null
+    },
+    "createdAt": "2026-11-03T12:00:00.000Z",
+    "updatedAt": "2026-11-03T12:00:00.000Z"
+  }
+]
