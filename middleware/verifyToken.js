@@ -7,7 +7,8 @@ let cachedJWKS = null;
 
 function getJWKS() {
   if (!cachedJWKS) {
-    const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
+    //const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
+    const clientUrl = process.env.CLIENT_URL;
     cachedJWKS = createRemoteJWKSet(new URL(`${clientUrl}/api/auth/jwks`));
   }
   return cachedJWKS;
@@ -49,6 +50,9 @@ export const verifyToken = async (req, res, next) => {
     // simply needs to sign in again.
     return res
       .status(401)
-      .json({ code: "INVALID_TOKEN", message: "Your session has expired. Please sign in again." });
+      .json({
+        code: "INVALID_TOKEN",
+        message: "Your session has expired. Please sign in again.",
+      });
   }
 };
