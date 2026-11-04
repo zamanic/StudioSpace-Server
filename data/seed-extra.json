@@ -157,6 +157,86 @@
       "updatedAt": "2026-09-30T10:10:00.000Z"
     },
     {
+      "_id": "673f1a01e84a2b9101a10009",
+      "title": "Helix Sound Stage & Acoustic Shell",
+      "slug": "helix-sound-stage",
+      "category": "Sound Stage",
+      "tagline": "A fully floated sound stage with a demountable acoustic shell for music, film and broadcast.",
+      "description": "Helix is a purpose-built sound stage for productions where the room itself has to stay out of the recording. The floor is floated on isolation pads, the walls carry a deep acoustic treatment, and a demountable shell can turn the stage into a concert hall or a dry dialogue box within the same booking. The grid is pre-rigged, the control room looks straight onto the floor, and a separate iso booth covers voice-over and ADR.",
+      "location": {
+        "address": "31 Kawran Bazar C/A, Studio Block B",
+        "city": "Dhaka",
+        "state": "Dhaka Division",
+        "zipCode": "1215",
+        "country": "Bangladesh",
+        "coordinates": { "lat": 23.750942, "lng": 90.392756 }
+      },
+      "pricing": {
+        "hourlyRate": 110,
+        "dailyRate": 880,
+        "securityDeposit": 400,
+        "cleaningFee": 60,
+        "minimumHours": 4,
+        "currency": "USD"
+      },
+      "specs": {
+        "squareFeet": 3600,
+        "ceilingHeightFt": 22,
+        "maxCapacity": 45,
+        "powerCapacity": "3-Phase 200A",
+        "soundproofRating": "STC 65 Floating room"
+      },
+      "images": [
+        {
+          "url": "/studios/film-stage-crew.jpg",
+          "caption": "Crew working under the pre-rigged grid",
+          "isPrimary": true
+        },
+        {
+          "url": "/studios/film-stage-exterior.jpg",
+          "caption": "Drive-in loading with a level floor",
+          "isPrimary": false
+        }
+      ],
+      "amenities": [
+        "Floated Isolation Floor",
+        "Demountable Acoustic Shell",
+        "Pre-Rigged Ceiling Grid",
+        "Control Room Overlooking the Floor",
+        "Voice-Over / ADR Iso Booth",
+        "Drive-In Loading",
+        "Green Room & Wardrobe",
+        "3-Phase Power"
+      ],
+      "includedGear": [
+        "Orchestral Shell Panels (set)",
+        "ARRI SkyPanel S60 (x2)",
+        "C-Stands (x10)",
+        "Riser Platform (modular)"
+      ],
+      "host": {
+        "hostId": "usr_host_examiner",
+        "name": "StudioSpace Examiner",
+        "email": "examiner@studiospace.io",
+        "phone": "+8801700000009",
+        "avatar": "",
+        "isSuperhost": true,
+        "responseRatePercent": 97,
+        "responseTime": "Within 45 minutes"
+      },
+      "rules": [
+        "Shell must be struck if the next booking is a dry dialogue session",
+        "No food or drink on the floated floor",
+        "Overtime billed at 1.5x hourly rate"
+      ],
+      "rating": 4.91,
+      "reviewCount": 34,
+      "isFeatured": true,
+      "isActive": true,
+      "createdAt": "2026-02-14T04:20:00.000Z",
+      "updatedAt": "2026-10-21T05:55:00.000Z"
+    },
+    {
       "_id": "673f1a01e84a2b9101a10005",
       "title": "Vault Analog Music Suite",
       "slug": "vault-analog-music-suite",
@@ -569,6 +649,170 @@
       },
       "createdAt": "2026-10-09T15:05:00.000Z",
       "updatedAt": "2026-10-14T18:30:00.000Z"
+    }
+  ],
+  "reviews": [
+    {
+      "_id": "674a1c01e84a2b9101a30001",
+      "studioId": "673f1a01e84a2b9101a10001",
+      "authorName": "Marium Tabassum",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "The cyclorama is spotless and the drive-in loading saved us an hour of carrying. We shot a full brand film here without a single lighting problem.",
+      "createdAt": "2026-09-18T09:20:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30002",
+      "studioId": "673f1a01e84a2b9101a10001",
+      "authorName": "Rezaul Karim",
+      "authorAvatar": "",
+      "rating": 4,
+      "comment": "Huge stage with a grid that takes a lot of weight. Booked four hours and the crew still had room to build a set in the corner.",
+      "createdAt": "2026-08-30T12:05:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30003",
+      "studioId": "673f1a01e84a2b9101a10002",
+      "authorName": "Nusrat Jahan",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "We record a weekly interview show here. The room is genuinely quiet and the two mics are already set up when you walk in.",
+      "createdAt": "2026-09-22T07:45:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30004",
+      "studioId": "673f1a01e84a2b9101a10002",
+      "authorName": "Tanvir Ahmed",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "A remote guest joined over the call-in channel and the levels were perfect on the first take. Best podcast room I have rented in Dhaka.",
+      "createdAt": "2026-09-04T16:30:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30005",
+      "studioId": "673f1a01e84a2b9101a10003",
+      "authorName": "Farhana Islam",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Three different looks from one room. We blacked it out for strobes in the morning and used the north window for editorial shots after lunch.",
+      "createdAt": "2026-10-12T08:15:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30006",
+      "studioId": "673f1a01e84a2b9101a10003",
+      "authorName": "Sadia Rahman",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "The cyc corner is seamless and the host left the tethering desk ready to go. Ideal for a product day with a small crew.",
+      "createdAt": "2026-09-27T10:40:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30007",
+      "studioId": "673f1a01e84a2b9101a10004",
+      "authorName": "Imran Hossain",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Pre-rigged grid means you are lit in twenty minutes. We booked it for interview pickups and finished ahead of schedule.",
+      "createdAt": "2026-09-30T13:10:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30008",
+      "studioId": "673f1a01e84a2b9101a10004",
+      "authorName": "Ayesha Siddiqua",
+      "authorAvatar": "",
+      "rating": 4,
+      "comment": "Level loading from the car park was a relief with the camera cart. The blacked-out floor took gaffer tape without leaving a mark.",
+      "createdAt": "2026-08-21T09:00:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30009",
+      "studioId": "673f1a01e84a2b9101a10009",
+      "authorName": "Shafayat Ullah",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "We tracked a small string section and the floated floor is no joke — the room stayed out of the recording completely.",
+      "createdAt": "2026-10-20T06:50:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30010",
+      "studioId": "673f1a01e84a2b9101a10009",
+      "authorName": "Rubaiya Haque",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "The demountable shell turned a dry dialogue day into a concert setup in under an hour. Control room looks straight onto the floor.",
+      "createdAt": "2026-10-02T15:25:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30011",
+      "studioId": "673f1a01e84a2b9101a10005",
+      "authorName": "Arafat Chowdhury",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Tracked a full band live off the floor. The live room has a warm tail and the iso booth kept the vocal takes clean.",
+      "createdAt": "2026-10-05T11:15:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30012",
+      "studioId": "673f1a01e84a2b9101a10005",
+      "authorName": "Nabila Anjum",
+      "authorAvatar": "",
+      "rating": 4,
+      "comment": "The console needs an hour to learn if you are new to it, but the engineer on call was patient and the mixes came out beautifully.",
+      "createdAt": "2026-09-11T14:00:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30013",
+      "studioId": "673f1a01e84a2b9101a10006",
+      "authorName": "Rifat Mahmud",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Snug, heavily treated and the light is even at any hour. Perfect for the two-person show we record every fortnight.",
+      "createdAt": "2026-10-08T09:30:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30014",
+      "studioId": "673f1a01e84a2b9101a10006",
+      "authorName": "Samiha Noor",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Booked it for an audiobook session and the room never got in the way. The complimentary filter coffee was a nice touch.",
+      "createdAt": "2026-09-16T08:05:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30015",
+      "studioId": "673f1a01e84a2b9101a10007",
+      "authorName": "Mehedi Hasan",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Four mics and three cameras on one switch meant one person ran the whole panel show. Streaming went out without a hitch.",
+      "createdAt": "2026-10-01T10:20:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30016",
+      "studioId": "673f1a01e84a2b9101a10007",
+      "authorName": "Zarin Tasnim",
+      "authorAvatar": "",
+      "rating": 4,
+      "comment": "Comfortable for a six-person round table and the green room gave guests somewhere to wait. Arrive early to set levels.",
+      "createdAt": "2026-09-06T12:45:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30017",
+      "studioId": "673f1a01e84a2b9101a10008",
+      "authorName": "Protik Barua",
+      "authorAvatar": "",
+      "rating": 5,
+      "comment": "Six wheels and plenty of bench space for a weekend workshop. Kiln access was straightforward to book alongside the day.",
+      "createdAt": "2026-09-19T07:00:00.000Z"
+    },
+    {
+      "_id": "674a1c01e84a2b9101a30018",
+      "studioId": "673f1a01e84a2b9101a10008",
+      "authorName": "Nadia Sultana",
+      "authorAvatar": "",
+      "rating": 4,
+      "comment": "A real working ceramics floor rather than a tidy showroom, which is exactly what we needed for a prop-making day.",
+      "createdAt": "2026-08-28T13:35:00.000Z"
     }
   ]
 }

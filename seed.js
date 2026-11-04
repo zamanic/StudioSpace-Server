@@ -31,6 +31,7 @@ async function seed() {
   const db = client.db("studiospace");
   const studioCollection = db.collection("studios");
   const bookingCollection = db.collection("bookings");
+  const reviewCollection = db.collection("reviews");
 
   const [officialStudios, officialBookings, extra] = await Promise.all([
     read("studios.json"),
@@ -40,6 +41,7 @@ async function seed() {
 
   const studios = [...officialStudios, ...extra.studios].map(withObjectId);
   const bookings = [...officialBookings, ...extra.bookings].map(withObjectId);
+  const reviews = (extra.reviews ?? []).map(withObjectId);
 
   for (const studio of studios) {
     await studioCollection.updateOne(
@@ -57,9 +59,18 @@ async function seed() {
     );
   }
 
+  for (const review of reviews) {
+    await reviewCollection.updateOne(
+      { _id: review._id },
+      { $set: review },
+      { upsert: true },
+    );
+  }
+
   console.log(
-    `Seeded ${studios.length} studios (${officialStudios.length} official) and ` +
-      `${bookings.length} bookings (${officialBookings.length} official).`,
+    `Seeded ${studios.length} studios (${officialStudios.length} official), ` +
+      `${bookings.length} bookings (${officialBookings.length} official) and ` +
+      `${reviews.length} reviews.`,
   );
   console.log(
     "Register with email examiner@studiospace.io to see a listing on " +
@@ -67,9 +78,14 @@ async function seed() {
   );
 
   const countByCategory = await studioCollection
-    .aggregate([{ $group: { _id: "$category", count: { $sum: 1 } } }, { $sort: { count: -1 } }])
+    .aggregate([
+      { $group: { _id: "$category", count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+    ])
     .toArray();
-  console.table(countByCategory.map((row) => ({ category: row._id, count: row.count })));
+  console.table(
+    countByCategory.map((row) => ({ category: row._id, count: row.count })),
+  );
 
   await disconnectFromMongoDB();
 }

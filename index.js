@@ -5,7 +5,11 @@ import "dotenv/config";
 
 import { connectToMongoDB } from "./lib/mongo.js";
 import { verifyToken } from "./middleware/verifyToken.js";
-import { validateStudio, validateBooking, timeToMinutes } from "./lib/validate.js";
+import {
+  validateStudio,
+  validateBooking,
+  timeToMinutes,
+} from "./lib/validate.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -18,6 +22,7 @@ const mongoClient = await connectToMongoDB();
 const db = mongoClient.db("studiospace");
 const studioCollection = db.collection("studios");
 const bookingCollection = db.collection("bookings");
+const reviewCollection = db.collection("reviews");
 
 // ---------------------------------------------------------------- helpers
 
@@ -29,7 +34,8 @@ const asyncHandler = (handler) => (req, res, next) =>
 const fail = (res, status, code, message) =>
   res.status(status).json({ code, message });
 
-const toObjectId = (id) => (/^[a-f\d]{24}$/i.test(id) ? new ObjectId(id) : null);
+const toObjectId = (id) =>
+  /^[a-f\d]{24}$/i.test(id) ? new ObjectId(id) : null;
 
 // An invalid / expired JWT must be 401, so verifyToken never returns 500.
 const ownerEmailOf = (req) => String(req.user?.email ?? "").toLowerCase();
@@ -187,6 +193,27 @@ app.get(
   }),
 );
 
+/**
+ * GET /studios/:id/reviews - public creator reviews for one studio, newest
+ * first. studioId is stored as the plain 24-char hex string (same convention
+ * as bookings.studioId) so it is matched directly, no ObjectId cast needed.
+ */
+app.get(
+  "/studios/:id/reviews",
+  asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    if (!/^[a-f\d]{24}$/i.test(id)) return res.json([]);
+
+    const result = await reviewCollection
+      .find({ studioId: id })
+      .sort({ createdAt: -1 })
+      .limit(30)
+      .toArray();
+
+    res.json(result);
+  }),
+);
+
 /** POST /add-studio - protected create. */
 app.post(
   "/add-studio",
@@ -210,7 +237,12 @@ app.get(
   asyncHandler(async (req, res) => {
     const email = String(req.query.email ?? ownerEmailOf(req)).toLowerCase();
     if (email !== ownerEmailOf(req)) {
-      return fail(res, 403, "FORBIDDEN", "You can only view your own listings.");
+      return fail(
+        res,
+        403,
+        "FORBIDDEN",
+        "You can only view your own listings.",
+      );
     }
 
     // Filtering by the owner inside the query itself - never "find all then
@@ -236,7 +268,12 @@ app.patch(
     if (!existing) return fail(res, 404, "NOT_FOUND", "Studio not found.");
 
     if (String(existing.host?.email).toLowerCase() !== ownerEmailOf(req)) {
-      return fail(res, 403, "FORBIDDEN", "You can only edit your own listings.");
+      return fail(
+        res,
+        403,
+        "FORBIDDEN",
+        "You can only edit your own listings.",
+      );
     }
 
     const { data, errors } = validateStudio(req.body, {
@@ -246,12 +283,12 @@ app.patch(
     if (errors) return fail(res, 400, "VALIDATION_ERROR", errors.join(" "));
 
     // $set updates only the fields present in the payload.
-    const result = await studioCollection.updateOne(
-      { _id },
-      { $set: data },
-    );
+    const result = await studioCollection.updateOne({ _id }, { $set: data });
 
-    res.json({ modifiedCount: result.modifiedCount, studio: { ...existing, ...data } });
+    res.json({
+      modifiedCount: result.modifiedCount,
+      studio: { ...existing, ...data },
+    });
   }),
 );
 
@@ -267,7 +304,12 @@ app.delete(
     if (!existing) return fail(res, 404, "NOT_FOUND", "Studio not found.");
 
     if (String(existing.host?.email).toLowerCase() !== ownerEmailOf(req)) {
-      return fail(res, 403, "FORBIDDEN", "You can only delete your own listings.");
+      return fail(
+        res,
+        403,
+        "FORBIDDEN",
+        "You can only delete your own listings.",
+      );
     }
 
     const result = await studioCollection.deleteOne({ _id });
@@ -285,7 +327,9 @@ app.post(
   "/bookings",
   verifyToken,
   asyncHandler(async (req, res) => {
-    const { data, errors, startMinutes, endMinutes } = validateBooking(req.body);
+    const { data, errors, startMinutes, endMinutes } = validateBooking(
+      req.body,
+    );
     if (errors) return fail(res, 400, "VALIDATION_ERROR", errors.join(" "));
 
     const _studioId = toObjectId(data.studioId);
@@ -340,7 +384,8 @@ app.post(
         `BK-${now.slice(0, 7).replace("-", "")}-${Math.floor(1000 + Math.random() * 8999)}`,
       studioTitle: studio.title,
       studioCategory: studio.category,
-      studioImage: studio.images?.find((image) => image.isPrimary)?.url ||
+      studioImage:
+        studio.images?.find((image) => image.isPrimary)?.url ||
         studio.images?.[0]?.url ||
         "",
       hostEmail: studio.host?.email ?? "",
@@ -357,7 +402,9 @@ app.post(
     };
 
     const result = await bookingCollection.insertOne(document);
-    res.status(201).json({ ...document, _id: result.insertedId, startMinutes, endMinutes });
+    res
+      .status(201)
+      .json({ ...document, _id: result.insertedId, startMinutes, endMinutes });
   }),
 );
 
@@ -368,7 +415,12 @@ app.get(
   asyncHandler(async (req, res) => {
     const email = String(req.query.email ?? ownerEmailOf(req)).toLowerCase();
     if (email !== ownerEmailOf(req)) {
-      return fail(res, 403, "FORBIDDEN", "You can only view your own bookings.");
+      return fail(
+        res,
+        403,
+        "FORBIDDEN",
+        "You can only view your own bookings.",
+      );
     }
 
     const result = await bookingCollection
@@ -392,7 +444,12 @@ app.patch(
     if (!booking) return fail(res, 404, "NOT_FOUND", "Booking not found.");
 
     if (String(booking.creator?.email).toLowerCase() !== ownerEmailOf(req)) {
-      return fail(res, 403, "FORBIDDEN", "You can only cancel your own bookings.");
+      return fail(
+        res,
+        403,
+        "FORBIDDEN",
+        "You can only cancel your own bookings.",
+      );
     }
 
     if (booking.status !== "Pending") {
@@ -425,7 +482,13 @@ app.get(
     const result = await bookingCollection
       .find(
         { studioId: req.params.studioId, status: { $in: BLOCKING_STATUSES } },
-        { projection: { "schedule.bookingDate": 1, "schedule.startTime": 1, "schedule.endTime": 1 } },
+        {
+          projection: {
+            "schedule.bookingDate": 1,
+            "schedule.startTime": 1,
+            "schedule.endTime": 1,
+          },
+        },
       )
       .toArray();
 
