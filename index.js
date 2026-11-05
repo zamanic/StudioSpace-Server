@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 import "dotenv/config";
 
 import { connectToMongoDB } from "./lib/mongo.js";
-import { verifyToken } from "./middleware/verifyToken.js";
+import { API_AUTH_COOKIE, verifyToken } from "./middleware/verifyToken.js";
 import {
   validateStudio,
   validateBooking,
@@ -13,8 +13,15 @@ import {
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+const CLIENT_URL = process.env.CLIENT_URL;
+const COOKIE_MAX_AGE = 7 * 24 * 60 * 60;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: "1mb" }));
 
 // ---------------------------------------------------------------- database
@@ -38,6 +45,31 @@ const fail = (res, status, code, message) =>
 const toObjectId = (id) =>
   /^[a-f\d]{24}$/i.test(id) ? new ObjectId(id) : null;
 
+const cookieBase = () => [
+  "Path=/",
+  "HttpOnly",
+  "SameSite=Lax",
+  ...(CLIENT_URL?.startsWith("https://") ? ["Secure"] : []),
+];
+
+const setAuthCookie = (res, token) => {
+  res.setHeader(
+    "Set-Cookie",
+    [
+      `${API_AUTH_COOKIE}=${encodeURIComponent(token)}`,
+      ...cookieBase(),
+      `Max-Age=${COOKIE_MAX_AGE}`,
+    ].join("; "),
+  );
+};
+
+const clearAuthCookie = (res) => {
+  res.setHeader(
+    "Set-Cookie",
+    [`${API_AUTH_COOKIE}=`, ...cookieBase(), "Max-Age=0"].join("; "),
+  );
+};
+
 // An invalid / expired JWT must be 401, so verifyToken never returns 500.
 const ownerEmailOf = (req) => String(req.user?.email ?? "").toLowerCase();
 
@@ -48,6 +80,34 @@ const BLOCKING_STATUSES = ["Confirmed"];
 // ---------------------------------------------------------------- health
 app.get("/", (req, res) => {
   res.json({ message: "Server is running fine!", service: "StudioSpace API" });
+});
+
+// --------------------------------------------------------------- auth bridge
+/**
+ * POST /auth/session-cookie - one-time handshake from the Next.js client.
+ * The client proves the freshly issued JWT in the Authorization header, and
+ * the API stores that JWT as an HttpOnly cookie so browser-driven mutations no
+ * longer need to send the token in JavaScript-readable headers.
+ */
+app.post("/auth/session-cookie", verifyToken, (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) {
+    return fail(
+      res,
+      401,
+      "UNAUTHORIZED",
+      "Missing bearer token for the session handshake.",
+    );
+  }
+
+  setAuthCookie(res, token);
+  res.json({ ok: true });
+});
+
+/** DELETE /auth/session-cookie - clears the API auth cookie on sign-out. */
+app.delete("/auth/session-cookie", (req, res) => {
+  clearAuthCookie(res);
+  res.json({ cleared: true });
 });
 
 // ---------------------------------------------------------------- studios

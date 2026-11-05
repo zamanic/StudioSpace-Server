@@ -1,5 +1,7 @@
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
+export const API_AUTH_COOKIE = "studiospace_jwt";
+
 // The public keys are published by Better Auth on the Next.js client at
 // /api/auth/jwks. We cache the key set for the whole process instead of
 // building a new one on every request.
@@ -14,29 +16,40 @@ function getJWKS() {
   return cachedJWKS;
 }
 
+function readCookie(header, name) {
+  if (!header) return null;
+  const found = String(header)
+    .split(";")
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(`${name}=`));
+
+  if (!found) return null;
+
+  const value = found.slice(name.length + 1);
+  return value ? decodeURIComponent(value) : null;
+}
+
 /**
  * Reusable Express middleware. Every protected route reuses this exact
  * function - never re-implemented inline per route.
  *
- * Reads `authorization: Bearer <jwt>` produced on the client by
- * `authClient.token()` (client components) or `auth.api.getToken()`
- * (server components).
+ * Reads the JWT from the API's HttpOnly cookie first, then falls back to
+ * `authorization: Bearer <jwt>` for server-side fetches and the one-time
+ * cookie-sync handshake from the Next.js client.
  */
 export const verifyToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-
-  if (!authHeader) {
-    return res
-      .status(401)
-      .json({ code: "UNAUTHORIZED", message: "Missing authorization header." });
-  }
-
-  const token = authHeader.split(" ")[1];
+  const cookieToken = readCookie(req.headers.cookie, API_AUTH_COOKIE);
+  const headerToken = authHeader?.split(" ")[1];
+  const token = cookieToken || headerToken;
 
   if (!token) {
     return res
       .status(401)
-      .json({ code: "UNAUTHORIZED", message: "Missing bearer token." });
+      .json({
+        code: "UNAUTHORIZED",
+        message: "Sign in again to continue.",
+      });
   }
 
   try {
