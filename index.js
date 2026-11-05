@@ -23,6 +23,7 @@ const db = mongoClient.db("studiospace");
 const studioCollection = db.collection("studios");
 const bookingCollection = db.collection("bookings");
 const reviewCollection = db.collection("reviews");
+const wishlistCollection = db.collection("wishlists");
 
 // ---------------------------------------------------------------- helpers
 
@@ -499,6 +500,110 @@ app.get(
         endTime: booking.schedule?.endTime,
       })),
     );
+  }),
+);
+
+// ---------------------------------------------------------------- wishlist
+/**
+ * A saved studio is one document per account: { userEmail, studioId, createdAt }.
+ * studioId stays the plain 24-char hex string, the same convention bookings and
+ * reviews already use, so writes never need an ObjectId cast.
+ */
+app.post(
+  "/wishlist/:studioId",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    const { studioId } = req.params;
+    const _studioId = toObjectId(studioId);
+    if (!_studioId) return fail(res, 404, "NOT_FOUND", "Studio not found.");
+
+    const studio = await studioCollection.findOne(
+      { _id: _studioId },
+      { projection: { _id: 1 } },
+    );
+    if (!studio) return fail(res, 404, "NOT_FOUND", "Studio not found.");
+
+    // upsert + $setOnInsert: clicking the heart twice never duplicates a row
+    // and never rewrites the date the studio was first saved.
+    await wishlistCollection.updateOne(
+      { userEmail: ownerEmailOf(req), studioId },
+      {
+        $setOnInsert: {
+          userEmail: ownerEmailOf(req),
+          studioId,
+          createdAt: new Date().toISOString(),
+        },
+      },
+      { upsert: true },
+    );
+
+    res.status(201).json({ saved: true, studioId });
+  }),
+);
+
+/** DELETE /wishlist/:studioId - protected. Idempotent: removing twice is a 200. */
+app.delete(
+  "/wishlist/:studioId",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    const result = await wishlistCollection.deleteOne({
+      userEmail: ownerEmailOf(req),
+      studioId: req.params.studioId,
+    });
+
+    res.json({ saved: false, removed: result.deletedCount });
+  }),
+);
+
+/**
+ * GET /my-wishlist/ids - the light list every card's heart reads. Kept separate
+ * from the full listing so a catalogue page never downloads the studio bodies
+ * just to know which hearts are filled.
+ */
+app.get(
+  "/my-wishlist/ids",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    const rows = await wishlistCollection
+      .find(
+        { userEmail: ownerEmailOf(req) },
+        { projection: { _id: 0, studioId: 1 } },
+      )
+      .toArray();
+
+    res.json(rows.map((row) => row.studioId));
+  }),
+);
+
+/**
+ * GET /my-wishlist - protected. One aggregation joins the saved ids back to the
+ * studios: saved newest first, so $sort runs before $lookup/$unwind and the
+ * document order survives the join.
+ */
+app.get(
+  "/my-wishlist",
+  verifyToken,
+  asyncHandler(async (req, res) => {
+    const result = await wishlistCollection
+      .aggregate([
+        { $match: { userEmail: ownerEmailOf(req) } },
+        { $sort: { createdAt: -1 } },
+        { $addFields: { studioObjectId: { $toObjectId: "$studioId" } } },
+        {
+          $lookup: {
+            from: "studios",
+            localField: "studioObjectId",
+            foreignField: "_id",
+            as: "studio",
+          },
+        },
+        { $unwind: "$studio" },
+        { $replaceRoot: { newRoot: "$studio" } },
+        { $match: { isActive: { $ne: false } } },
+      ])
+      .toArray();
+
+    res.json(result);
   }),
 );
 
