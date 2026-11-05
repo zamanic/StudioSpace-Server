@@ -409,7 +409,14 @@ app.post(
   }),
 );
 
-/** GET /my-bookings - protected, only the signed-in creator's reservations. */
+/**
+ * GET /my-bookings - protected, only the signed-in creator's reservations.
+ * A booking document stores the studioId but not the address, so $lookup
+ * pulls the studio's location back in and $addFields flattens it onto the
+ * booking as `studioLocation`. The join is a pipeline lookup rather than a
+ * plain localField/foreignField one because studioId is a string here and an
+ * ObjectId there, and the $convert guard keeps a malformed id from throwing.
+ */
 app.get(
   "/my-bookings",
   verifyToken,
@@ -425,8 +432,38 @@ app.get(
     }
 
     const result = await bookingCollection
-      .find({ "creator.email": email })
-      .sort({ "schedule.bookingDate": -1, createdAt: -1 })
+      .aggregate([
+        { $match: { "creator.email": email } },
+        { $sort: { "schedule.bookingDate": -1, createdAt: -1 } },
+        {
+          $lookup: {
+            from: "studios",
+            let: {
+              studioObjectId: {
+                $convert: {
+                  input: "$studioId",
+                  to: "objectId",
+                  onError: null,
+                  onNull: null,
+                },
+              },
+            },
+            pipeline: [
+              { $match: { $expr: { $eq: ["$_id", "$$studioObjectId"] } } },
+              { $project: { _id: 0, location: 1 } },
+            ],
+            as: "studioRef",
+          },
+        },
+        {
+          $addFields: {
+            studioLocation: {
+              $ifNull: [{ $first: "$studioRef.location" }, null],
+            },
+          },
+        },
+        { $project: { studioRef: 0 } },
+      ])
       .toArray();
 
     res.json(result);
